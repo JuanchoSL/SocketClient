@@ -1,6 +1,6 @@
 <?php
 
-namespace JuanchoSL\Library\Tests;
+namespace JuanchoSL\SocketClient\Tests;
 
 use Exception;
 use PHPUnit\Framework\TestCase;

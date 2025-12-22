@@ -1,35 +1,41 @@
 {
-    "name": "juanchosl/library",
-    "description": "{}",
+    "name": "juanchosl/socketclient",
+    "description": "Little methods collection in order to connect and use some socket connections from distinct types of origins ",
     "type": "library",
     "license": "MIT",
-    "homepage": "https://github.com/JuanchoSL/Library",
+    "homepage": "https://github.com/JuanchoSL/SocketClient",
     "keywords": [
-        "log",
-        "debug"
+        "sockets",
+        "tcp",
+        "udp",
+        "streams",
+        "web sockets"
     ],
     "authors": [
         {
             "name": "Juan Sánchez Lecegui",
-            "email": "JuanchoSL@hotmail.com",
-            "homepage": "https://github.com/JuanchoSL/"
+            "email": "Juan.Sanchez@tecnicosweb.com",
+            "homepage": "https://www.linkedin.com/in/juansanchezlecegui/",
+            "role": "Developer"
         }
     ],
     "require": {
-        "php": "^8.1"
+        "php": "^8.0",
+        "ext-sockets": "*"
     },
     "require-dev": {
+        "juanchosl/logger": "1.1.*",
         "phpunit/phpunit": "9.6.*",
         "phpstan/phpstan": "1.12.*"
     },
     "autoload": {
         "psr-4": {
-            "JuanchoSL\\Library\\": "src/"
+            "JuanchoSL\\SocketClient\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "JuanchoSL\\Library\\Tests\\": "tests/"
+            "JuanchoSL\\SocketClient\\Tests\\": "tests/"
         }
     },
     "scripts": {

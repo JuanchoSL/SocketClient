@@ -1,4 +1,4 @@
-# Change Log {}
+# Change Log - SocketClient
 
 ## [1.0.0] -
 
