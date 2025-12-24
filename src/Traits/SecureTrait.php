@@ -1,0 +1,31 @@
+<?php declare(strict_types=1);
+
+namespace JuanchoSL\SocketClient\Traits;
+
+trait SecureTrait
+{
+
+    public function setCrypto(bool $enable = true): bool
+    {
+        //$this->encoded = 13;
+        return @stream_socket_enable_crypto($this->channel, $enable, $enable ? STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT : null) === true;
+    }
+
+    public function getContext()
+    {
+        $contextOptions = array(
+            'ssl' => array(
+                'verify_peer' => false,
+                'verify_peer_name' => false,
+                //'local_cert' => realpath(__DIR__ . DIRECTORY_SEPARATOR . StreamSslSocketClient::CERTIFICATE),
+                //'local_cert' => realpath(__DIR__ . DIRECTORY_SEPARATOR . StreamSslSocketServer::CERTIFICATE),
+                //'local_pk' => realpath(__DIR__ . DIRECTORY_SEPARATOR . StreamSslSocketServer::CERTIFICATE),
+                'allow_self_signed' => true,
+                'ssltransport' => $this->uri->getScheme()
+            )
+        );
+        $context = stream_context_create($contextOptions);
+        stream_context_set_option($context, 'ssl', 'capture_peer_cert', true);
+        return $context;
+    }
+}
