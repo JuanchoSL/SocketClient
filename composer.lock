@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "83ab12fa91105ce6427565fc9a97b933",
+    "content-hash": "a249448274912b75d6b1778c1a50cb68",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -113,16 +113,16 @@
         },
         {
             "name": "juanchosl/httpdata",
-            "version": "dev-develop",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JuanchoSL/HttpData.git",
-                "reference": "9a58c0b64884d0ad417aa3cf7c92dad53f680aba"
+                "reference": "a52e6662a6029f3e0f74efda943a436e6713e029"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JuanchoSL/HttpData/zipball/9a58c0b64884d0ad417aa3cf7c92dad53f680aba",
-                "reference": "9a58c0b64884d0ad417aa3cf7c92dad53f680aba",
+                "url": "https://api.github.com/repos/JuanchoSL/HttpData/zipball/a52e6662a6029f3e0f74efda943a436e6713e029",
+                "reference": "a52e6662a6029f3e0f74efda943a436e6713e029",
                 "shasum": ""
             },
             "require": {
@@ -137,8 +137,9 @@
             },
             "require-dev": {
                 "phpstan/phpstan": "1.12.*",
-                "phpunit/phpunit": "9.6.*"
+                "phpunit/phpunit": "10.5.*"
             },
+            "default-branch": true,
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -171,9 +172,9 @@
                 "uri"
             ],
             "support": {
-                "source": "https://github.com/JuanchoSL/HttpData/tree/develop"
+                "source": "https://github.com/JuanchoSL/HttpData/tree/master"
             },
-            "time": "2025-12-23T20:19:49+00:00"
+            "time": "2025-12-24T16:09:04+00:00"
         },
         {
             "name": "juanchosl/httpheaders",

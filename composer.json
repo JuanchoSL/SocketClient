@@ -24,7 +24,7 @@
         "ext-sockets": "*",
         "psr/log": "3.0.*",
         "juanchosl/validators": "1.0.*",
-        "juanchosl/httpdata": "dev-develop"
+        "juanchosl/httpdata": "dev-master"
     },
     "require-dev": {
         "juanchosl/logger": "1.1.*",
