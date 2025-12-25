@@ -96,7 +96,7 @@ class RawSocketClient extends AbstractSocketClient implements LoggerAwareInterfa
     {
         $data = rtrim($data);
         $this->logger?->debug($data);
-        return socket_write($this->channel, $data . "\r\n") !== false;
+        return socket_write($this->channel, $data) !== false;
 
         /// //UDP or SERVER???
         return socket_sendmsg($this->channel, $data) !== false;

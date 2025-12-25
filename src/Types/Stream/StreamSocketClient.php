@@ -14,7 +14,7 @@ class StreamSocketClient extends AbstractSocketClient implements LoggerAwareInte
 
     use TransmitterTrait;
 
-    protected int $timeout = 10;
+    protected int $timeout = 60;
 
     public function connect(): bool
     {
