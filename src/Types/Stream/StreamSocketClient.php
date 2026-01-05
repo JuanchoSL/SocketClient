@@ -14,15 +14,23 @@ class StreamSocketClient extends AbstractSocketClient implements LoggerAwareInte
 
     use TransmitterTrait;
 
-    protected int $timeout = 60;
+    protected int $timeout = 90;
 
     public function connect(): bool
     {
-        $this->channel = stream_socket_client("{$this->uri->getScheme()}://{$this->uri->getHost()}:{$this->uri->getPort()}", $errno, $errstr, $this->timeout, STREAM_CLIENT_CONNECT, $this->getContext());
+        $time = microtime(true);
+        $this->channel = stream_socket_client("{$this->uri->getScheme()}://{$this->uri->getHost()}:{$this->uri->getPort()}", $errno, $errstr, $this->timeout, STREAM_CLIENT_CONNECT | STREAM_CLIENT_ASYNC_CONNECT, $this->getContext());
+        $this->logger?->debug("Connecting: {scheme}://{host}:{port}", [
+            'scheme' => $this->uri->getScheme(),
+            'host' => $this->uri->getHost(),
+            'port' => $this->uri->getPort(),
+            'time' => number_format(microtime(true) - $time, 4, '.', '')
+        ]);
         if (empty($this->channel)) {
             $this->logger?->debug("Error: [{code}] -> {message}", ['code' => $errno, 'message' => $errstr]);
             throw new Exception($errstr, $errno);
         }
+        stream_set_timeout($this->channel, 5);
         return $this->connected = true;
     }
 

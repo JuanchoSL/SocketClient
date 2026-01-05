@@ -5,10 +5,13 @@ namespace JuanchoSL\SocketClient\Traits;
 trait SecureTrait
 {
 
-    public function setCrypto(bool $enable = true): bool
+    public function setCrypto(bool $enable = true, $parent = null): bool
     {
         //$this->encoded = 13;
-        return @stream_socket_enable_crypto($this->channel, $enable, $enable ? STREAM_CRYPTO_METHOD_TLSv1_2_CLIENT : null) === true;
+        if ($this->isConnected()) {
+            return @stream_socket_enable_crypto($this->channel, $enable, $enable ? STREAM_CRYPTO_METHOD_TLS_CLIENT : null, $parent) === true;
+        }
+        return false;
     }
 
     public function getContext()
@@ -17,6 +20,8 @@ trait SecureTrait
             'ssl' => array(
                 'verify_peer' => false,
                 'verify_peer_name' => false,
+                'disable_compression' => true,
+                'security_level' => 0,
                 //'local_cert' => realpath(__DIR__ . DIRECTORY_SEPARATOR . StreamSslSocketClient::CERTIFICATE),
                 //'local_cert' => realpath(__DIR__ . DIRECTORY_SEPARATOR . StreamSslSocketServer::CERTIFICATE),
                 //'local_pk' => realpath(__DIR__ . DIRECTORY_SEPARATOR . StreamSslSocketServer::CERTIFICATE),

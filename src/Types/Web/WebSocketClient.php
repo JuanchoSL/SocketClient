@@ -14,10 +14,16 @@ class WebSocketClient extends StreamSocketClient
     public function connect(): bool
     {
         parent::connect();
+        $time = microtime(true);
         $result = $this->handshake();
         if ($result->hasHeader('Sec-websocket-version')) {
             $this->encoded = +$result->getHeaderLine('Sec-websocket-version');
         }
+        $this->logger?->debug("Handshake", [
+            'encoded' => intval($this->encoded),
+            'result' => (string) $result,
+            'time' => number_format(microtime(true) - $time, 4, '.', '')
+        ]);
         return $this->isConnected();
     }
 

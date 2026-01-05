@@ -9,15 +9,14 @@ trait TransmitterTrait
         $buffer = '';
         do {
             $tmp = fread($this->channel, $buffer_size);
-            if (!empty($tmp)) {
-                //$this->logCall($tmp, ['buffer' => $buffer, 'tmp' => $tmp, 'size' => strlen($tmp)]);
+            if ($tmp !== false) {
+                $this->logger?->debug($tmp, ['buffer' => $buffer, 'tmp' => $tmp, 'size' => strlen($tmp)]);
                 $buffer .= $tmp;
             } else {
                 break;
             }
             //} while (!is_numeric(substr($tmp, 0, 3)) || substr($tmp, 3, 1) != ' ');
-        } while (strlen($tmp) >= $buffer_size);
-        //$this->logCall('after', ['metadata' => stream_get_meta_data($this->link), 'transports' => stream_get_transports(), 'wrappers' => stream_get_wrappers()]);
+        } while (mb_strlen($tmp) >= $buffer_size);
         $this->logger?->debug($buffer);
         return trim($buffer, "\r\n");
     }
@@ -25,6 +24,6 @@ trait TransmitterTrait
     public function write(string $data): bool
     {
         $this->logger?->debug($data);
-        return fwrite($this->channel, $data) !== false;
+        return fwrite($this->channel, $data, mb_strlen($data)) !== false;
     }
 }

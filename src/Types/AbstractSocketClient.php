@@ -30,6 +30,11 @@ abstract class AbstractSocketClient implements LoggerAwareInterface, ConnectionI
         $this->disconnect();
     }
 
+    public function __invoke()
+    {
+        return $this->channel;
+    }
+
     public function isConnected(): bool
     {
         return $this->connected;

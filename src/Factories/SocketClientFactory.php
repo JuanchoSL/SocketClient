@@ -18,9 +18,11 @@ class SocketClientFactory
         } elseif (in_array($uri->getScheme(), ['ws'])) {
             return new WebSocketClient($uri->withScheme('tcp'));
         } elseif (in_array($uri->getScheme(), ['sftp', 'ftps', 'ssl', 'tls'])) {
-            return new SecureStreamSocketClient($uri);
+            return new SecureStreamSocketClient($uri->withScheme('tcp'));
         } elseif (in_array($uri->getScheme(), ['ftp', 'tcp', 'upd'])) {
             return new StreamSocketClient($uri);
+        }else{
+            return new SecureStreamSocketClient($uri);
         }
     }
 
