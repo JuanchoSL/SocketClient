@@ -25,22 +25,22 @@ Compatible (and really tested) Protocols
 
 | Selected | Used | Class |
 |:---------|:-----|:------|
-| tcp | tcp | StreamSocketClient|
-| udp | udp | StreamSocketClient|
-| ftp | tcp | StreamSocketClient|
-| ftps | tls | SecureStreamSocketClient|
-| ssl | ssl | SecureStreamSocketClient|
-| tls | tls | SecureStreamSocketClient|
-| ws | tcp | WebSocketClient|
-| wss | ssl | SecureWebSocketClient|
+| tcp      | tcp  | StreamSocketClient |
+| udp      | udp  | StreamSocketClient |
+| ftp      | tcp  | StreamSocketClient |
+| ftps     | tls  | SecureStreamSocketClient |
+| ssl      | ssl  | SecureStreamSocketClient |
+| tls      | tls  | SecureStreamSocketClient |
+| ws       | tcp  | WebSocketClient |
+| wss      | ssl  | SecureWebSocketClient |
 
 Available methods
 
 | Method | Description |
-|:----|:---|
+|:-------|:------------|
 | construct | Set the url and prepare the instance for future connection|
 | connect | try to establish a real connection with the prepared server|
-| isConnected | return true or false in order to know the conneciton status|
+| isConnected | return true or false in order to know the connection status|
 | disconnect | close the connection|
 | setBlockingMode | set true or false for enable or disable the blocking mode with the connected server|
 | read |try to read n bytes from buffer, if block mode is enabled, wait for receive some data |
