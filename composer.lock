@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f97b76c8f0fe237c8e77159fd0f4546",
+    "content-hash": "5f7bd493451a2a79e2ed90e5560c8de1",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -63,6 +63,61 @@
             "time": "2020-11-24T22:02:12+00:00"
         },
         {
+            "name": "juanchosl/datamanipulation",
+            "version": "1.0.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JuanchoSL/DataManipulation.git",
+                "reference": "d87d85a87b97abce62911fb7e9068e28336712d4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JuanchoSL/DataManipulation/zipball/d87d85a87b97abce62911fb7e9068e28336712d4",
+                "reference": "d87d85a87b97abce62911fb7e9068e28336712d4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "1.12.*",
+                "phpunit/phpunit": "9.6.*"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JuanchoSL\\DataManipulation\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Juan Sánchez Lecegui",
+                    "email": "Juan.Sanchez@tecnicosweb.com",
+                    "homepage": "https://www.linkedin.com/in/juansanchezlecegui/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Little methods collection in order to manipulate variables contents",
+            "homepage": "https://github.com/JuanchoSL/DataManipulation",
+            "keywords": [
+                "arrays",
+                "manipulation",
+                "numbers",
+                "strings",
+                "variables"
+            ],
+            "support": {
+                "source": "https://github.com/JuanchoSL/DataManipulation/tree/1.0"
+            },
+            "time": "2026-01-08T19:12:29+00:00"
+        },
+        {
             "name": "juanchosl/exceptions",
             "version": "1.0.6",
             "source": {
@@ -113,21 +168,22 @@
         },
         {
             "name": "juanchosl/httpdata",
-            "version": "1.0.6",
+            "version": "dev-develop",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JuanchoSL/HttpData.git",
-                "reference": "21475824f6b6afe2d69410c8e33c1bce45bff809"
+                "reference": "27c8998ec304f74521f4704b9a261dfd94bdb36f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JuanchoSL/HttpData/zipball/21475824f6b6afe2d69410c8e33c1bce45bff809",
-                "reference": "21475824f6b6afe2d69410c8e33c1bce45bff809",
+                "url": "https://api.github.com/repos/JuanchoSL/HttpData/zipball/27c8998ec304f74521f4704b9a261dfd94bdb36f",
+                "reference": "27c8998ec304f74521f4704b9a261dfd94bdb36f",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "fig/http-message-util": "1.1.*",
+                "juanchosl/datamanipulation": "^1.0",
                 "juanchosl/exceptions": "1.0.*",
                 "juanchosl/httpheaders": "1.0.*",
                 "php": "^8.0",
@@ -171,9 +227,9 @@
                 "uri"
             ],
             "support": {
-                "source": "https://github.com/JuanchoSL/HttpData/tree/1.0.6"
+                "source": "https://github.com/JuanchoSL/HttpData/tree/develop"
             },
-            "time": "2025-12-27T00:07:19+00:00"
+            "time": "2026-01-08T22:34:39+00:00"
         },
         {
             "name": "juanchosl/httpheaders",
@@ -2400,7 +2456,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "juanchosl/datamanipulation": 20,
+        "juanchosl/httpdata": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

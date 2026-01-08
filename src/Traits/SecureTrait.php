@@ -5,11 +5,21 @@ namespace JuanchoSL\SocketClient\Traits;
 trait SecureTrait
 {
 
+    protected $crt;
+    protected $pk;
+
+    public function setCertificates(string $private_key, ?string $public_key = null): static
+    {
+        $this->pk = $private_key;
+        $this->crt = $public_key ?? $private_key;
+        return $this;
+    }
+
     public function setCrypto(bool $enable = true, $parent = null): bool
     {
         //$this->encoded = 13;
         if ($this->isConnected()) {
-            return @stream_socket_enable_crypto($this->channel, $enable, $enable ? STREAM_CRYPTO_METHOD_TLS_CLIENT : null, $parent) === true;
+            return @stream_socket_enable_crypto($this->channel, $enable, $enable ? $this->encrypt : null, $parent) === true;
         }
         return false;
     }
