@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f97b76c8f0fe237c8e77159fd0f4546",
+    "content-hash": "ceed6b69cfdceb61fe4872f8366c9fbf",
     "packages": [
         {
             "name": "fig/http-message-util",
@@ -63,6 +63,60 @@
             "time": "2020-11-24T22:02:12+00:00"
         },
         {
+            "name": "juanchosl/datamanipulation",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/JuanchoSL/DataManipulation.git",
+                "reference": "3315aafff87e126968eae38f4c2e7f4d7a823bd4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/JuanchoSL/DataManipulation/zipball/3315aafff87e126968eae38f4c2e7f4d7a823bd4",
+                "reference": "3315aafff87e126968eae38f4c2e7f4d7a823bd4",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "1.12.*",
+                "phpunit/phpunit": "9.6.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JuanchoSL\\DataManipulation\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Juan Sánchez Lecegui",
+                    "email": "Juan.Sanchez@tecnicosweb.com",
+                    "homepage": "https://www.linkedin.com/in/juansanchezlecegui/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Little methods collection in order to manipulate variables contents",
+            "homepage": "https://github.com/JuanchoSL/DataManipulation",
+            "keywords": [
+                "arrays",
+                "manipulation",
+                "numbers",
+                "strings",
+                "variables"
+            ],
+            "support": {
+                "source": "https://github.com/JuanchoSL/DataManipulation/tree/1.0.1"
+            },
+            "time": "2026-01-09T14:21:32+00:00"
+        },
+        {
             "name": "juanchosl/exceptions",
             "version": "1.0.6",
             "source": {
@@ -113,21 +167,22 @@
         },
         {
             "name": "juanchosl/httpdata",
-            "version": "1.0.6",
+            "version": "1.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/JuanchoSL/HttpData.git",
-                "reference": "21475824f6b6afe2d69410c8e33c1bce45bff809"
+                "reference": "68fd8423b800cf4e628a83b336b492527e4fb504"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JuanchoSL/HttpData/zipball/21475824f6b6afe2d69410c8e33c1bce45bff809",
-                "reference": "21475824f6b6afe2d69410c8e33c1bce45bff809",
+                "url": "https://api.github.com/repos/JuanchoSL/HttpData/zipball/68fd8423b800cf4e628a83b336b492527e4fb504",
+                "reference": "68fd8423b800cf4e628a83b336b492527e4fb504",
                 "shasum": ""
             },
             "require": {
                 "ext-mbstring": "*",
                 "fig/http-message-util": "1.1.*",
+                "juanchosl/datamanipulation": "^1.0",
                 "juanchosl/exceptions": "1.0.*",
                 "juanchosl/httpheaders": "1.0.*",
                 "php": "^8.0",
@@ -171,9 +226,9 @@
                 "uri"
             ],
             "support": {
-                "source": "https://github.com/JuanchoSL/HttpData/tree/1.0.6"
+                "source": "https://github.com/JuanchoSL/HttpData/tree/1.0.7"
             },
-            "time": "2025-12-27T00:07:19+00:00"
+            "time": "2026-01-09T14:26:43+00:00"
         },
         {
             "name": "juanchosl/httpheaders",

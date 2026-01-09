@@ -13,7 +13,7 @@ class StreamSocketClient extends AbstractSocketClient implements LoggerAwareInte
 {
 
     use TransmitterTrait;
-
+    protected int $encrypt = STREAM_CRYPTO_METHOD_TLS_CLIENT;
     protected int $timeout = 90;
 
     public function connect(): bool

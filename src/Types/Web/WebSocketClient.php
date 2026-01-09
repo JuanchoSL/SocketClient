@@ -16,8 +16,8 @@ class WebSocketClient extends StreamSocketClient
         parent::connect();
         $time = microtime(true);
         $result = $this->handshake();
-        if ($result->hasHeader('Sec-websocket-version')) {
-            $this->encoded = +$result->getHeaderLine('Sec-websocket-version');
+        if ($result->hasHeader('Sec-Websocket-Version')) {
+            $this->encoded = +$result->getHeaderLine('Sec-Websocket-Version');
         }
         $this->logger?->debug("Handshake", [
             'encoded' => intval($this->encoded),

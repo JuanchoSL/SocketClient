@@ -6,7 +6,6 @@ use Fig\Http\Message\RequestMethodInterface;
 use JuanchoSL\HttpData\Bodies\Parsers\ResponseReader;
 use JuanchoSL\HttpData\Factories\RequestFactory;
 use JuanchoSL\HttpData\Factories\StreamFactory;
-use JuanchoSL\HttpData\Factories\UriFactory;
 
 trait HandshakeTrait
 {
@@ -23,13 +22,15 @@ trait HandshakeTrait
             ->withHeader('Connection', 'Upgrade')
             ->withHeader('Sec-WebSocket-Key', base64_encode(uniqid()))
             ->withHeader('Sec-WebSocket-Version', '13')
+            ->withHeader('Sec-Fetch-Mode', 'websocket')
+            //->withHeader('Sec-WebSocket-Extensions', 'permessage-deflate')
+            ->withHeader('Host', $this->uri->getHost() . ":" . $this->uri->getPort())
             ->withHeader('Origin', gethostname())
         ;
 
         $this->write((string) $message);
         $response = $this->read();
         $response = new ResponseReader((new StreamFactory())->createStream($response));
-        //echo "<pre>" . print_r($response, true);
         return $response = $response();
     }
 }
