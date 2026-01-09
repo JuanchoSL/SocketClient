@@ -11,4 +11,5 @@ interface SecureConnectionInterface
      * @return bool tru if change has been applyed
      */
     public function setCrypto(bool $status): bool;
+    public function setCertificates(string $private_key, ?string $public_key = null): static;
 }
